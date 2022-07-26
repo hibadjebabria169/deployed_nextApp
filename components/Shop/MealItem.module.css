@@ -1,0 +1,26 @@
+
+
+.price {
+  margin-top: 0.25rem;
+  font-weight: bold;
+  color: #042A2B;
+  font-size: 1.25rem;
+}
+
+.button{
+  font: inherit;
+  cursor: pointer;
+  background-color: #042A2B;
+  border: 1px solid #C2C2C2;
+  color: white;
+  text-align: right;
+  padding: 0.5rem 3rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.button:hover,
+.button:active {
+  background-color: #C2C2C2;
+  border-color: #5EB1BF;
+}
