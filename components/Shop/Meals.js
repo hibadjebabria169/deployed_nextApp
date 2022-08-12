@@ -2,13 +2,12 @@ import MealItem from "./MealItem";
 import classes from "./Meals.module.css";
 import { useState, useEffect } from "react";
 
-
-const Meals = (props) => {
-  const [Meals, setMeals] = useState([]);
+const Meals = ({ data }) => {
+  /*  const [Meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+ /* useEffect(() => {
     const fetchMeals = async () => {
       setIsLoading(true);
       setError(null);
@@ -48,12 +47,23 @@ const Meals = (props) => {
 
   if (error) {
     throw new Error("SMTHG WRONG");
-  }
+  } */
+
+  const [res, setres] = useState([]);
+
+  useEffect(() => {
+    var obj = data;
+    var res = [];
+
+    for (var i in obj) res.push({...obj[i],id:i}); //hna lazm nzidou id ta3 koul meal that's why we add the spread statment 
+    setres(res);
+    console.log(data);
+  }, []);
 
   return (
     <section className={classes.meals}>
       <ul>
-        {Meals.map((meal) => (
+        {res.map((meal) => (
           <MealItem
             key={meal.id}
             id={meal.id}

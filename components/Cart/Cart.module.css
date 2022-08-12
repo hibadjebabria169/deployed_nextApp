@@ -7,7 +7,6 @@
     overflow: auto;
   }
   
-  
   .actions {
     text-align: right;
   }
@@ -24,7 +23,7 @@
   
   .actions button:hover,
   .actions button:active {
-    background-color: #54F2F2;
+    background-color: #042A2B;
     border-color: #042A2B;
     color: white;
   }
