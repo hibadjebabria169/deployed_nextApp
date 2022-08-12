@@ -10,6 +10,14 @@
   .actions {
     text-align: right;
   }
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
   
   .actions button {
     font: inherit;

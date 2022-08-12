@@ -68,7 +68,8 @@ const CartItem = (props) => {
         id,
         name,
         price,
-        total,
+        quantity : 1,        
+
       })
     );
   };
