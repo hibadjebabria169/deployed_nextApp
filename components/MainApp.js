@@ -3,20 +3,24 @@ import Cart from "../components/Cart/Cart";
 import Layout from "../components/Layout/Layout";
 import { useState } from "react";
 import Meals from "../components/Shop/Meals";
-import Modal from "./UI/Modal";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../store/ui-slice";
 import React from "react";
 import Header from "./Layout/MainHeader";
 
 function MainApp({ data }) {
-  //const showCart = useSelector((state) => state.ui.cartIsVisible);
+  const showCart = useSelector((state) => state.ui.cartIsVisible);
+  const dispatch = useDispatch();
 
-  const [cartShown, setCartShown] = useState(false);
+ // const [cartShown, setCartShown] = useState(false);
   const showcartHanlder = () => {
-    setCartShown(true);
+    dispatch(
+      uiActions.toggle(),
+    )
   };
-  const hidecartHandler = () => {
+  /*const hidecartHandler = () => {
     setCartShown(false);
-  };
+  }; */
   return (
     /* <Layout>
           {showModal && <Cart />}
@@ -25,7 +29,7 @@ function MainApp({ data }) {
     <Layout>
       <Header onShowCart={showcartHanlder} />
       <Meals data={data} />
-      {cartShown && <Cart onHide={hidecartHandler} />}
+      {showCart && <Cart />}
     </Layout>
   );
 }

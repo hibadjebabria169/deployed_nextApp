@@ -33,13 +33,28 @@ import Modal from "../UI/Modal";
 import Card from "../UI/Card";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
+import { uiActions } from "../../store/ui-slice";
+import { useDispatch } from "react-redux";
 
 const Cart = (props) => {
+ // const showCart = useSelector((state) => state.ui.cartIsVisible);
+
+const dispatch = useDispatch();
+const closeHandler = () => {
+dispatch(
+  uiActions.toggle(),
+)
+
+}
+
+
   const cartItems = useSelector((state) => state.cart.items);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const showCart = useSelector((state) => state.ui.cartIsVisible);
 
   return (
-    <Modal onClose={props.onHide}>
+    
+   <Modal onClose={props.onHide}>
       <ul className={classes['cart-items']}>
         {cartItems.map((item) => (
           <CartItem
@@ -59,7 +74,7 @@ const Cart = (props) => {
         <span>${totalAmount.toFixed(2)}</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={props.onHide}>
+        <button className={classes["button--alt"]} onClick={closeHandler}>
           Close
         </button>
       </div>

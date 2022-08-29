@@ -13,7 +13,6 @@ function App({ data }) {
 }
 
 export async function getServerSideProps() {
-  console.log("hiba");
 
   // Fetch data from external API
   const res = await fetch(
